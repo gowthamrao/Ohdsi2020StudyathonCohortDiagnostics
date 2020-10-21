@@ -89,24 +89,29 @@ runCohortDiagnostics <- function(packageName = "examplePackage",
                                  minCellCount = 5) {
   if (!file.exists(outputFolder))
     dir.create(outputFolder, recursive = TRUE)
-
+  
   ParallelLogger::addDefaultFileLogger(file.path(outputFolder, "log.txt"))
   ParallelLogger::addDefaultErrorReportLogger(file.path(outputFolder, "errorReportR.txt"))
   on.exit(ParallelLogger::unregisterLogger("DEFAULT_FILE_LOGGER", silent = TRUE))
   on.exit(ParallelLogger::unregisterLogger("DEFAULT_ERRORREPORT_LOGGER", silent = TRUE), add = TRUE)
-
+  
   if (createCohorts) {
     ParallelLogger::logInfo("Creating cohorts")
     connection <- DatabaseConnector::connect(connectionDetails)
-    .createCohorts(connection = connection,
-                   cdmDatabaseSchema = cdmDatabaseSchema,
-                   cohortDatabaseSchema = cohortDatabaseSchema,
-                   cohortTable = cohortTable,
-                   oracleTempSchema = oracleTempSchema,
-                   outputFolder = outputFolder)
+    CohortDiagnostics::instantiateCohortSet(connection = connection,
+                                            cdmDatabaseSchema = cdmDatabaseSchema,
+                                            cohortDatabaseSchema = cohortDatabaseSchema,
+                                            oracleTempSchema = oracleTempSchema,
+                                            cohortTable = cohortTable,
+                                            packageName = packageName, 
+                                            generateInclusionStats = runInclusionStatistics, 
+                                            inclusionStatisticsFolder = file.path(outputFolder,
+                                                                                  "inclusionStatisticsFolder"),
+                                            createCohortTable = TRUE, 
+                                            incrementalFolder = incrementalFolder)
     DatabaseConnector::disconnect(connection)
   }
-
+  
   ParallelLogger::logInfo("Running study diagnostics")
   CohortDiagnostics::runCohortDiagnostics(packageName = packageName,
                                           connectionDetails = connectionDetails,
