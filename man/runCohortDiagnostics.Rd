@@ -25,6 +25,8 @@ runCohortDiagnostics(
   runCohortOverlap = TRUE,
   runCohortCharacterization = TRUE,
   runTemporalCohortCharacterization = TRUE,
+  incremental = TRUE,
+  incrementalFolder = file.path(outputFolder, "incrementalFolder"),
   minCellCount = 5
 )
 }

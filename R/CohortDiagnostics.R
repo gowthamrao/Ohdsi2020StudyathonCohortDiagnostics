@@ -83,6 +83,9 @@ runCohortDiagnostics <- function(packageName = "examplePackage",
                                  runCohortOverlap = TRUE,
                                  runCohortCharacterization = TRUE,
                                  runTemporalCohortCharacterization = TRUE,
+                                 incremental = TRUE,
+                                 incrementalFolder = file.path(outputFolder,
+                                                               "incrementalFolder"),
                                  minCellCount = 5) {
   if (!file.exists(outputFolder))
     dir.create(outputFolder, recursive = TRUE)
@@ -126,5 +129,7 @@ runCohortDiagnostics <- function(packageName = "examplePackage",
                                           runCohortOverlap = runCohortOverlap,
                                           runCohortCharacterization = runCohortCharacterization,
                                           runTemporalCohortCharacterization = runTemporalCohortCharacterization,
+                                          incremental = incremental,
+                                          incrementalFolder = incrementalFolder,
                                           minCellCount = minCellCount)
 }
