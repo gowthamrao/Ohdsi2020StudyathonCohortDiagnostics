@@ -1,1 +1,84 @@
 cohortName,ruleSequence,ruleName,cohortId
+1317,0,At least 1 Measurement of total cholesterol with value between 3.37-8.29 mmol/L (130-320 mg/dL) on or in prior 5 years of index,1317
+1317,1,At least 1 Measurement of HDL cholesterol with between value 0.52-2.59 mmol/L (20-100 mg/dL) on or in prior 5 years of index,1317
+1317,2,AT least 1 Measurement of systolic blood pressure with value between 90-200 mm Hg on or in prior 1 year of index,1317
+1317,3,Age between 40 and 79,1317
+1317,4,"Have 0 condition occurrences of myocardial infarction, stroke (ischemic or hemorrhagic), heart failure, atrial fibrillation  all time on or prior to index",1317
+1317,5,Have 0 procedures of percutaneous coronary intervention OR coronary artery bypass surgery all time on or prior to index,1317
+1317,6,Have 0 condition occurrences of angina all time on or prior to index,1317
+1317,7,Have 0 condition occurrences of type 2 diabetes all time on or prior to index,1317
+1317,8,"Have 0 drug exposures of  drugs used for type 2 diabetes, non-insulin all time on or prior to index ",1317
+1317,9,Have 0 measurements of Hemoglobin A1c  >= 6.5 % all time on or prior to index,1317
+1317,10,"Have 0 drug exposures of  statins, all time on or prior to index ",1317
+1322,0,Race is Black,1322
+1322,1,Gender is Female,1322
+1322,2,At least 1 Measurement of total cholesterol with value between 3.37-8.29 mmol/L (130-320 mg/dL) on or in prior 5 years of index,1322
+1322,3,At least 1 Measurement of HDL cholesterol with between value 0.52-2.59 mmol/L (20-100 mg/dL) on or in prior 5 years of index,1322
+1322,4,AT least 1 Measurement of systolic blood pressure with value between 90-200 mm Hg on or in prior 1 year of index,1322
+1322,5,Age between 40 and 79,1322
+1322,6,"Have 0 condition occurrences of myocardial infarction, stroke (ischemic or hemorrhagic), heart failure, atrial fibrillation  all time on or prior to index",1322
+1322,7,Have 0 procedures of percutaneous coronary intervention OR coronary artery bypass surgery all time on or prior to index,1322
+1322,8,Have 0 condition occurrences of angina all time on or prior to index,1322
+1322,9,Have 0 condition occurrences of type 2 diabetes all time on or prior to index,1322
+1322,10,"Have 0 drug exposures of  drugs used for type 2 diabetes, non-insulin all time on or prior to index ",1322
+1322,11,Have 0 measurements of Hemoglobin A1c  >= 6.5 % all time on or prior to index,1322
+1322,12,"Have 0 drug exposures of  statins, all time on or prior to index ",1322
+1325,0,Race is Black,1325
+1325,1,Gender is Male,1325
+1325,2,At least 1 Measurement of total cholesterol with value between 3.37-8.29 mmol/L (130-320 mg/dL) on or in prior 5 years of index,1325
+1325,3,At least 1 Measurement of HDL cholesterol with between value 0.52-2.59 mmol/L (20-100 mg/dL) on or in prior 5 years of index,1325
+1325,4,AT least 1 Measurement of systolic blood pressure with value between 90-200 mm Hg on or in prior 1 year of index,1325
+1325,5,Age between 40 and 79,1325
+1325,6,"Have 0 condition occurrences of myocardial infarction, stroke (ischemic or hemorrhagic), heart failure, atrial fibrillation  all time on or prior to index",1325
+1325,7,Have 0 procedures of percutaneous coronary intervention OR coronary artery bypass surgery all time on or prior to index,1325
+1325,8,Have 0 condition occurrences of angina all time on or prior to index,1325
+1325,9,Have 0 condition occurrences of type 2 diabetes all time on or prior to index,1325
+1325,10,"Have 0 drug exposures of  drugs used for type 2 diabetes, non-insulin all time on or prior to index ",1325
+1325,11,Have 0 measurements of Hemoglobin A1c  >= 6.5 % all time on or prior to index,1325
+1325,12,"Have 0 drug exposures of  statins, all time on or prior to index ",1325
+1326,0,Race is Non-Black,1326
+1326,1,Gender is Male,1326
+1326,2,At least 1 Measurement of total cholesterol with value between 3.37-8.29 mmol/L (130-320 mg/dL) on or in prior 5 years of index,1326
+1326,3,At least 1 Measurement of HDL cholesterol with between value 0.52-2.59 mmol/L (20-100 mg/dL) on or in prior 5 years of index,1326
+1326,4,AT least 1 Measurement of systolic blood pressure with value between 90-200 mm Hg on or in prior 1 year of index,1326
+1326,5,Age between 40 and 79,1326
+1326,6,"Have 0 condition occurrences of myocardial infarction, stroke (ischemic or hemorrhagic), heart failure, atrial fibrillation  all time on or prior to index",1326
+1326,7,Have 0 procedures of percutaneous coronary intervention OR coronary artery bypass surgery all time on or prior to index,1326
+1326,8,Have 0 condition occurrences of angina all time on or prior to index,1326
+1326,9,Have 0 condition occurrences of type 2 diabetes all time on or prior to index,1326
+1326,10,"Have 0 drug exposures of  drugs used for type 2 diabetes, non-insulin all time on or prior to index ",1326
+1326,11,Have 0 measurements of Hemoglobin A1c  >= 6.5 % all time on or prior to index,1326
+1326,12,"Have 0 drug exposures of  statins, all time on or prior to index ",1326
+1328,0,Race is Non-Black,1328
+1328,1,Gender is Female,1328
+1328,2,At least 1 Measurement of total cholesterol with value between 3.37-8.29 mmol/L (130-320 mg/dL) on or in prior 5 years of index,1328
+1328,3,At least 1 Measurement of HDL cholesterol with between value 0.52-2.59 mmol/L (20-100 mg/dL) on or in prior 5 years of index,1328
+1328,4,AT least 1 Measurement of systolic blood pressure with value between 90-200 mm Hg on or in prior 1 year of index,1328
+1328,5,Age between 40 and 79,1328
+1328,6,"Have 0 condition occurrences of myocardial infarction, stroke (ischemic or hemorrhagic), heart failure, atrial fibrillation  all time on or prior to index",1328
+1328,7,Have 0 procedures of percutaneous coronary intervention OR coronary artery bypass surgery all time on or prior to index,1328
+1328,8,Have 0 condition occurrences of angina all time on or prior to index,1328
+1328,9,Have 0 condition occurrences of type 2 diabetes all time on or prior to index,1328
+1328,10,"Have 0 drug exposures of  drugs used for type 2 diabetes, non-insulin all time on or prior to index ",1328
+1328,11,Have 0 measurements of Hemoglobin A1c  >= 6.5 % all time on or prior to index,1328
+1328,12,"Have 0 drug exposures of  statins, all time on or prior to index ",1328
+1329,0,Pre operative assessment prior to admission (procedure),1329
+1330,0,Pre operative assessment prior to admission (procedure),1330
+1331,0,Pre operative assessment prior to admission (procedure),1331
+1332,0,Pre operative assessment prior to admission (procedure),1332
+1333,0,Pre operative assessment prior to admission (procedure),1333
+1334,0,Pre operative assessment prior to admission (procedure),1334
+1335,0,Pre operative assessment prior to admission (procedure),1335
+1336,0,Pre operative assessment prior to admission (procedure),1336
+1337,0,Pre operative assessment prior to admission (procedure),1337
+1338,0,Pre operative assessment prior to admission (procedure),1338
+1340,0,Pre operative assessment prior to admission (procedure),1340
+1341,0,Out patient pre operative risk assessment,1341
+1342,0,Pre operative assessment prior to admission (procedure),1342
+1344,0,Pre operative assessment prior to admission (procedure),1344
+1345,0,Pre operative assessment prior to admission (procedure),1345
+1346,0,Pre operative assessment prior to admission (procedure),1346
+1347,0,Pre operative assessment prior to admission (procedure),1347
+1348,0,preop eval,1348
+1350,0,Pre operative assessment prior to admission (procedure),1350
+1351,0,Pre operative assessment prior to admission (procedure),1351

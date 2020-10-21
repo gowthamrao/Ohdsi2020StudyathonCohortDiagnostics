@@ -1,6 +1,6 @@
 # Copyright 2020 Observational Health Data Sciences and Informatics
 #
-# This file is part of examplePackage
+# This file is part of Ohdsi2020StudyathonCohortDiagnostics
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
 # limitations under the License.
 
 .createCohorts <- function(connection,
-                           packageName = "examplePackage",
                            cdmDatabaseSchema,
                            vocabularyDatabaseSchema = cdmDatabaseSchema,
                            cohortDatabaseSchema,
@@ -25,7 +24,7 @@
   
   # Create study cohort table structure:
   sql <- SqlRender::loadRenderTranslateSql(sqlFilename = "CreateCohortTable.sql",
-                                           packageName = packageName,
+                                           packageName = "Ohdsi2020StudyathonCohortDiagnostics",
                                            dbms = attr(connection, "dbms"),
                                            oracleTempSchema = oracleTempSchema,
                                            cohort_database_schema = cohortDatabaseSchema,
@@ -34,7 +33,7 @@
   
   
   # Insert rule names in cohort_inclusion table:
-  pathToCsv <- system.file("cohorts", "InclusionRules.csv", package = packageName)
+  pathToCsv <- system.file("cohorts", "InclusionRules.csv", package = "Ohdsi2020StudyathonCohortDiagnostics")
   inclusionRules <- readr::read_csv(pathToCsv, col_types = readr::cols()) 
   inclusionRules <- data.frame(cohort_definition_id = inclusionRules$cohortId,
                                rule_sequence = inclusionRules$ruleSequence,
@@ -42,19 +41,19 @@
   DatabaseConnector::insertTable(connection = connection,
                                  tableName = "#cohort_inclusion",
                                  data = inclusionRules,
-                                 dropTableIfExists = TRUE,
-                                 createTable = TRUE,
+                                 dropTableIfExists = FALSE,
+                                 createTable = FALSE,
                                  tempTable = TRUE,
                                  oracleTempSchema = oracleTempSchema)
   
   
   # Instantiate cohorts:
-  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = packageName)
+  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "Ohdsi2020StudyathonCohortDiagnostics")
   cohortsToCreate <- readr::read_csv(pathToCsv, col_types = readr::cols())
   for (i in 1:nrow(cohortsToCreate)) {
     writeLines(paste("Creating cohort:", cohortsToCreate$name[i]))
     sql <- SqlRender::loadRenderTranslateSql(sqlFilename = paste0(cohortsToCreate$name[i], ".sql"),
-                                             packageName = packageName,
+                                             packageName = "Ohdsi2020StudyathonCohortDiagnostics",
                                              dbms = attr(connection, "dbms"),
                                              oracleTempSchema = oracleTempSchema,
                                              cdm_database_schema = cdmDatabaseSchema,
@@ -81,7 +80,7 @@
   names(counts) <- SqlRender::snakeCaseToCamelCase(names(counts))
   counts <- merge(counts, data.frame(cohortDefinitionId = cohortsToCreate$cohortId,
                                      cohortName  = cohortsToCreate$name))
-  readr::write_csv(x = counts, file = file.path(outputFolder, "CohortCounts.csv"))
+  readr::write_csv(x = counts, path = file.path(outputFolder, "CohortCounts.csv"))
   
   
   # Fetch inclusion rule stats and drop tables:
@@ -94,7 +93,7 @@
     stats <- DatabaseConnector::querySql(connection, sql)
     names(stats) <- SqlRender::snakeCaseToCamelCase(names(stats))
     fileName <- file.path(outputFolder, paste0(SqlRender::snakeCaseToCamelCase(tableName), ".csv"))
-    readr::write_csv(x = stats, file = fileName)
+    readr::write_csv(x = stats, path = fileName)
     
     sql <- "TRUNCATE TABLE #@table_name; DROP TABLE #@table_name;"
     sql <- SqlRender::render(sql, table_name = tableName)

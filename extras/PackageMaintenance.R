@@ -17,22 +17,46 @@
 packageName <- "Ohdsi2020StudyathonCohortDiagnostics"
 
 # Format and check code ---------------------------------------------------
-OhdsiRTools::formatRFolder()
-OhdsiRTools::checkUsagePackage(packageName)
-OhdsiRTools::updateCopyrightYearFolder()
+# OhdsiRTools::formatRFolder()
+# OhdsiRTools::checkUsagePackage(packageName)
+# OhdsiRTools::updateCopyrightYearFolder()
 
 # Create manual -----------------------------------------------------------
-shell("rm extras/Ohdsi2020StudyathonCohortDiagnostics.pdf")
-shell("R CMD Rd2pdf ./ --output=extras/Ohdsi2020StudyathonCohortDiagnostics.pdf")
+# shell("rm extras/Ohdsi2020StudyathonCohortDiagnostics.pdf")
+# shell("R CMD Rd2pdf ./ --output=extras/Ohdsi2020StudyathonCohortDiagnostics.pdf")
 
+baseUrl <- "http://Ohdsicovid19us.us-east-1.elasticbeanstalk.com/WebAPI/"
+library(magrittr)
+
+allCohorts <- ROhdsiWebApi::getCohortDefinitionsMetaData(baseUrl = baseUrl)
+
+cohortsInOhdsi2020StudyAthonDescription <- allCohorts %>% 
+  dplyr::filter(stringr::str_detect(string = .data$name,
+                                    pattern = stringr::fixed("[PCE")) | 
+                  stringr::str_detect(string = .data$name, 
+                                      pattern = stringr::fixed("[RCRI"))) %>%
+  dplyr::select(.data$id, .data$name, .data$description) %>% dplyr::mutate(phenotypeId = 0,
+                                                                           webApiCohortId = id,
+                                                                           atlasId = id,
+                                                                           cohortName = name,
+                                                                           name = id,
+                                                                           logicDescription = description,
+                                                                           cohortId = id) %>% dplyr::select(.data$phenotypeId,
+                                                                                                            .data$webApiCohortId,
+                                                                                                            .data$atlasId,
+                                                                                                            .data$cohortName,
+                                                                                                            .data$name,
+                                                                                                            .data$logicDescription,
+                                                                                                            .data$cohortId)
+
+readr::write_excel_csv(x = cohortsInOhdsi2020StudyAthonDescription,
+                       file = "inst/settings/CohortsToCreate.csv",
+                       na = "")
 
 # Insert cohort definitions from ATLAS into package -----------------------
 ROhdsiWebApi::insertCohortDefinitionSetInPackage(fileName = "inst/settings/CohortsToCreate.csv",
-                                                 baseUrl = Sys.getenv("ohdsiBaseUrl"),
+                                                 baseUrl = baseUrl,
                                                  insertTableSql = TRUE,
                                                  insertCohortCreationR = TRUE,
                                                  generateStats = TRUE,
                                                  packageName = packageName)
-
-# Store environment in which the study was executed -----------------------
-OhdsiRTools::insertEnvironmentSnapshotInPackage(packageName)

@@ -1,1 +1,38 @@
-atlasId,atlasName,cohortId,name
+﻿phenotypeId,webApiCohortId,atlasId,cohortName,name,logicDescription,cohortId
+0,1290,1290,[RCRI covariate] periods of elevated creatinine,1290,,1290
+0,1339,1339,"[PCE] outcome Acute myocardial infarction events, defined by condition occurrences of 'myocardial Infarction with complication' conceptset occurring between start and end of inpatient or ER visit",1339,,1339
+0,1344,1344,[RCRI] sub T -  Pneumonectomy ,1344,[RCRI] Pneumonectomy,1344
+0,1348,1348,[RCRI] sub T Head and neck resection,1348,"[RCRI] Patients aged >=45 yo who undergo a surgical resection of the head or neck as part of an inpatient visit, on hospital day 0 or 1, with a preop evaluation beforehand",1348
+0,1320,1320,[RCRI] Surgery-broad,1320,Patients aged >=45 undergoing non-emergent surgery (excluding cardiovascular surgery) as part of an inpatient visit,1320
+0,1330,1330,[RCRI] sub T - knee arthroplasty,1330,[RCRI] Knee arthroplasty ,1330
+0,1335,1335,[RCRI] sub T - Craniotomy ,1335,[RCRI] Craniotomy ,1335
+0,1325,1325,[PCE - Target cohort master]  Black Male Persons who are statin-risk eligible,1325,,1325
+0,1295,1295,[PCE covariate] periods treated with hypertension drugs,1295,,1295
+0,1286,1286,[PCE] covariate - smoker,1286,,1286
+0,1336,1336,"[RCRI] sub T -  Major spine surgery is surgery involving multiple levels of the spine, but does not include spinal fusion ",1336,"[RCRI] Major spine surgery is surgery involving multiple levels of the spine, but does not include spinal fusion",1336
+0,1331,1331,[RCRI] sub T - Lower leg amputation (amputation below knee but above foot) ,1331,[RCRI] Lower leg amputation (amputation below knee but above foot) ,1331
+0,1345,1345,[RCRI] sub T -  Lobectomy,1345,[RCRI] Lobectomy ,1345
+0,1338,1338,[RCRI] sub T -  Hysterectomy is surgery to remove the uterus and usually the cervix ,1338,Hysterectomy is surgery to remove the uterus and usually the cervix ,1338
+0,1329,1329,[RCRI] T Patients >age 45 Major Non Cardiac Surgery with Preoperative Assessment and aorto-iliac reconstructive vascular surgery for diagnostics,1329,"[RCRI] Aorto-iliac reconstructive vascular surgery (open abdominal aortic aneurysm repair, aorto-femoral bypass, iliac-femoral bypass, renal artery revascularization, celiac artery revascularization, superior mesenteric artery revascularization)",1329
+0,1326,1326,[PCE - Target cohort master]  Non-Black Male Persons who are statin-risk eligible,1326,,1326
+0,1332,1332,[RCRI] sub T - Above knee amputations ,1332,[RCRI] Above knee amputations,1332
+0,1346,1346,[RCRI] sub T -  Major Thoracic Resection,1346,"[RCRI] Other thoracic (wedge resection of lung, resection of mediastinal tumor, major chest wall resection) ",1346
+0,1337,1337,"[RCRI] sub T - Radical hysterectomy is surgery to remove the uterus, cervix and part of the vagina ",1337,"[RCRI] Radical hysterectomy is surgery to remove the uterus, cervix and part of the vagina 
+",1337
+0,1340,1340,[RCRI] sub T - Radical prostatectomy is surgery to remove entire prostate gland and surrounding tissue ,1340,"[RCRI] Radical prostatectomy is surgery to remove entire prostate gland and surrounding tissue 
+",1340
+0,1317,1317,[PCE - Target cohort]  Persons who are statin-risk eligible,1317,,1317
+0,1287,1287,[RCRI] covariate cerebrovascular disease,1287,,1287
+0,1322,1322,[PCE - Target cohort master]  Black Female Persons who are statin-risk eligible,1322,,1322
+0,1341,1341,[RCRI] sub T Other intra-abdominal surgery,1341,"[RCRI] Patients aged >= 45yo who undergo surgeries on spleen, appendix, gallbladder, adrenal glands, and lymph nodes during inpatient visit (on hospital day 0 or 1) with a preop risk evaluation ",1341
+0,1333,1333,[RCRI] sub T - Internal Fixation of Femur ,1333,[RCRI] Internal fixation of femur,1333
+0,1318,1318,[PCE -Target cohort]_persons_who_are_eligible_Daniel_temp,1318,pce_model_targetcohort_persons_who_are_eligible_Daniel_temp,1318
+0,1350,1350,[RCRI] sub T - Peripheral vascular lower limb arterial bypass,1350,"[RCRI] Scheduled Lower limb arterial bypass necessitating inpatient stay, peripheral vascular reconstruction without aortic cross-clamping (axillo-femoral bypass, femoral-femoral bypass, femoro-infragenicular bypass, profundoplasty, or other angioplasties of the infrainguinal arteries) ",1350
+0,1293,1293,[RCRI covariate] Ischemic heart disease,1293,,1293
+0,1347,1347,[RCRI] sub T -  Thoracic Vascular Surgery ,1347,"[RCRI] Thoracic aorta reconstructive vascular surgeries (thoracic aortic aneurysm repair, repair of supra-aortic trunks not requiring total cardiopulmonary bypass,  thoracoabdominal aortic aneurism repair with or without aorto-femoral bypass",1347
+0,1328,1328,[PCE - Target cohort master]  Non-Black Female Persons who are statin-risk eligible,1328,,1328
+0,1343,1343,[RCRI covariate] periods of elevated creatinine or renal impairment,1343,,1343
+0,1334,1334,"[RCRI] sub T - Major hip or pelvic surgery (hemi or total hip arthroplasty, internal fixation of hip)",1334,"[RCRI] Major hip or pelvic surgery (hemi or total hip arthroplasty, internal fixation of hip, pelvic arthroplasty)",1334
+0,1342,1342,[RCRI] sub T - Transurethral prostatectomy to remove overgrowth of prostate tissue ,1342,"[RCRI] Transurethral prostatectomy to remove overgrowth of prostate tissue 
+",1342
+0,1351,1351,[RCRI] sub T - Extracranial cerebrovascular,1351,(scheduled) Extracranial cerebrovascular necessitating inpatient stay,1351

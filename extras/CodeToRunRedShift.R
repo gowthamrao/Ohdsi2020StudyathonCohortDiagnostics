@@ -14,9 +14,9 @@
 
 
 # Load the package
-library(examplePackage)
+library(Ohdsi2020StudyathonCohortDiagnostics)
 
-path <- "D:/yourStudyFolderRs"
+path <- "D:\\studyResults\\ohdsi2020Studyathon"
 
 # Optional: specify where the temporary files will be created:
 options(andromedaTempFolder = file.path(path, "andromedaTemp"))
