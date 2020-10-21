@@ -4,13 +4,13 @@
 		"CriteriaList" : [
 			{
 				"ConditionOccurrence" : {
-					"CodesetId" : 0,
+					"CodesetId" : 1,
 					"ConditionTypeExclude" : false
 				}
 			},
 			{
 				"Observation" : {
-					"CodesetId" : 0,
+					"CodesetId" : 1,
 					"ObservationTypeExclude" : false
 				}
 			}
@@ -25,10 +25,44 @@
 	},
 	"ConceptSets" : [
 		{
-			"id" : 0,
+			"id" : 1,
 			"name" : "cerebrovascular disease",
 			"expression" : {
 				"items" : [
+					{
+						"concept" : {
+							"CONCEPT_ID" : 439037,
+							"CONCEPT_NAME" : "Aneurysm of artery of neck",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "3827008",
+							"DOMAIN_ID" : "Condition",
+							"VOCABULARY_ID" : "SNOMED",
+							"CONCEPT_CLASS_ID" : "Clinical Finding"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					},
+					{
+						"concept" : {
+							"CONCEPT_ID" : 443551,
+							"CONCEPT_NAME" : "Apraxia due to cerebrovascular accident",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "428668000",
+							"DOMAIN_ID" : "Condition",
+							"VOCABULARY_ID" : "SNOMED",
+							"CONCEPT_CLASS_ID" : "Clinical Finding"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					},
 					{
 						"concept" : {
 							"CONCEPT_ID" : 443454,
@@ -116,30 +150,13 @@
 					},
 					{
 						"concept" : {
-							"CONCEPT_ID" : 439276,
-							"CONCEPT_NAME" : "Uncomplicated arteriosclerotic dementia",
+							"CONCEPT_ID" : 43530606,
+							"CONCEPT_NAME" : "Sequela of traumatic intracranial hemorrhage",
 							"STANDARD_CONCEPT" : "S",
 							"STANDARD_CONCEPT_CAPTION" : "Standard",
 							"INVALID_REASON" : "V",
 							"INVALID_REASON_CAPTION" : "Valid",
-							"CONCEPT_CODE" : "191463004",
-							"DOMAIN_ID" : "Condition",
-							"VOCABULARY_ID" : "SNOMED",
-							"CONCEPT_CLASS_ID" : "Clinical Finding"
-						},
-						"isExcluded" : false,
-						"includeDescendants" : true,
-						"includeMapped" : false
-					},
-					{
-						"concept" : {
-							"CONCEPT_ID" : 443605,
-							"CONCEPT_NAME" : "Vascular dementia",
-							"STANDARD_CONCEPT" : "S",
-							"STANDARD_CONCEPT_CAPTION" : "Standard",
-							"INVALID_REASON" : "V",
-							"INVALID_REASON_CAPTION" : "Valid",
-							"CONCEPT_CODE" : "429998004",
+							"CONCEPT_CODE" : "100581000119102",
 							"DOMAIN_ID" : "Condition",
 							"VOCABULARY_ID" : "SNOMED",
 							"CONCEPT_CLASS_ID" : "Clinical Finding"
@@ -167,30 +184,13 @@
 					},
 					{
 						"concept" : {
-							"CONCEPT_ID" : 443551,
-							"CONCEPT_NAME" : "Apraxia due to cerebrovascular accident",
+							"CONCEPT_ID" : 4111721,
+							"CONCEPT_NAME" : "Sequelae of intracerebral hemorrhage",
 							"STANDARD_CONCEPT" : "S",
 							"STANDARD_CONCEPT_CAPTION" : "Standard",
 							"INVALID_REASON" : "V",
 							"INVALID_REASON_CAPTION" : "Valid",
-							"CONCEPT_CODE" : "428668000",
-							"DOMAIN_ID" : "Condition",
-							"VOCABULARY_ID" : "SNOMED",
-							"CONCEPT_CLASS_ID" : "Clinical Finding"
-						},
-						"isExcluded" : false,
-						"includeDescendants" : true,
-						"includeMapped" : false
-					},
-					{
-						"concept" : {
-							"CONCEPT_ID" : 376714,
-							"CONCEPT_NAME" : "Vertebrobasilar artery syndrome",
-							"STANDARD_CONCEPT" : "S",
-							"STANDARD_CONCEPT_CAPTION" : "Standard",
-							"INVALID_REASON" : "V",
-							"INVALID_REASON_CAPTION" : "Valid",
-							"CONCEPT_CODE" : "195199008",
+							"CONCEPT_CODE" : "195241001",
 							"DOMAIN_ID" : "Condition",
 							"VOCABULARY_ID" : "SNOMED",
 							"CONCEPT_CLASS_ID" : "Clinical Finding"
@@ -218,13 +218,13 @@
 					},
 					{
 						"concept" : {
-							"CONCEPT_ID" : 4111721,
-							"CONCEPT_NAME" : "Sequelae of intracerebral hemorrhage",
+							"CONCEPT_ID" : 443605,
+							"CONCEPT_NAME" : "Vascular dementia",
 							"STANDARD_CONCEPT" : "S",
 							"STANDARD_CONCEPT_CAPTION" : "Standard",
 							"INVALID_REASON" : "V",
 							"INVALID_REASON_CAPTION" : "Valid",
-							"CONCEPT_CODE" : "195241001",
+							"CONCEPT_CODE" : "429998004",
 							"DOMAIN_ID" : "Condition",
 							"VOCABULARY_ID" : "SNOMED",
 							"CONCEPT_CLASS_ID" : "Clinical Finding"
@@ -235,13 +235,13 @@
 					},
 					{
 						"concept" : {
-							"CONCEPT_ID" : 43530606,
-							"CONCEPT_NAME" : "Sequela of traumatic intracranial hemorrhage",
+							"CONCEPT_ID" : 376714,
+							"CONCEPT_NAME" : "Vertebrobasilar artery syndrome",
 							"STANDARD_CONCEPT" : "S",
 							"STANDARD_CONCEPT_CAPTION" : "Standard",
 							"INVALID_REASON" : "V",
 							"INVALID_REASON_CAPTION" : "Valid",
-							"CONCEPT_CODE" : "100581000119102",
+							"CONCEPT_CODE" : "195199008",
 							"DOMAIN_ID" : "Condition",
 							"VOCABULARY_ID" : "SNOMED",
 							"CONCEPT_CLASS_ID" : "Clinical Finding"

@@ -5,13 +5,13 @@ CREATE TABLE #Codesets (
 ;
 
 INSERT INTO #Codesets (codeset_id, concept_id)
-SELECT 1 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+SELECT 0 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
 ( 
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (439037,443551,443454,381591,4143274,439847,434056,43530606,4112026,4111721,4111720,443605,376714)
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4195136,4338257,4049675,4231680,4321450,4078547,4272324,4001562,38001216,38001215,38001217,38001213,38001212,38001214,4101626,4031312,4030825,4244434,4187533,4120425,40482705,4183741,4203442,4121242,2108643,2108645,2768119,4323208,4179071,4127886,4188287,4315036,4120657,38001219,38001218,38001220,2722214,2722215,2722216,4030150,4000882,2830031,4047234,4059308,4241198,4165549,4311038,4141456,4096783,4077122,2103867,45887730,44793144,4181152,2740455,2756407,2760818,2740654,2756413,2756411,4090926,43531416,2107101,4234536)
 UNION  select c.concept_id
   from @vocabulary_database_schema.CONCEPT c
   join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
-  and ca.ancestor_concept_id in (439037,443551,443454,381591,4143274,439847,434056,43530606,4112026,4111721,4111720,443605,376714)
+  and ca.ancestor_concept_id in (4195136,4338257,4049675,4231680,4321450,4078547,4272324,4001562,38001216,38001215,38001217,38001213,38001212,38001214,4101626,4031312,4030825,4244434,4187533,4120425,40482705,4183741,4203442,4121242,2108643,2108645,2768119,4323208,4179071,4127886,4188287,4315036,4120657,38001219,38001218,38001220,2722214,2722215,2722216,4030150,4000882,2830031,4047234,4059308,4241198,4165549,4311038,4141456,4096783,4077122,2103867,45887730,44793144,4181152,2740455,2756407,2760818,2740654,2756413,2756411,4090926,43531416,2107101,4234536)
   and c.invalid_reason is null
 
 ) I
@@ -29,34 +29,19 @@ FROM
          OP.observation_period_start_date as op_start_date, OP.observation_period_end_date as op_end_date, cast(E.visit_occurrence_id as bigint) as visit_occurrence_id
   FROM 
   (
-  -- Begin Condition Occurrence Criteria
-SELECT C.person_id, C.condition_occurrence_id as event_id, C.condition_start_date as start_date, COALESCE(C.condition_end_date, DATEADD(day,1,C.condition_start_date)) as end_date,
-       C.CONDITION_CONCEPT_ID as TARGET_CONCEPT_ID, C.visit_occurrence_id,
-       C.condition_start_date as sort_date
-FROM 
-(
-  SELECT co.* 
-  FROM @cdm_database_schema.CONDITION_OCCURRENCE co
-  JOIN #Codesets codesets on ((co.condition_concept_id = codesets.concept_id and codesets.codeset_id = 1))
-) C
-
-
--- End Condition Occurrence Criteria
-
-UNION ALL
--- Begin Observation Criteria
-select C.person_id, C.observation_id as event_id, C.observation_date as start_date, DATEADD(d,1,C.observation_date) as END_DATE,
-       C.observation_concept_id as TARGET_CONCEPT_ID, C.visit_occurrence_id,
-       C.observation_date as sort_date
+  -- Begin Procedure Occurrence Criteria
+select C.person_id, C.procedure_occurrence_id as event_id, C.procedure_date as start_date, DATEADD(d,1,C.procedure_date) as END_DATE,
+       C.procedure_concept_id as TARGET_CONCEPT_ID, C.visit_occurrence_id,
+       C.procedure_date as sort_date
 from 
 (
-  select o.* 
-  FROM @cdm_database_schema.OBSERVATION o
-JOIN #Codesets codesets on ((o.observation_concept_id = codesets.concept_id and codesets.codeset_id = 1))
+  select po.* 
+  FROM @cdm_database_schema.PROCEDURE_OCCURRENCE po
+JOIN #Codesets codesets on ((po.procedure_concept_id = codesets.concept_id and codesets.codeset_id = 0))
 ) C
 
 
--- End Observation Criteria
+-- End Procedure Occurrence Criteria
 
   ) E
 	JOIN @cdm_database_schema.observation_period OP on E.person_id = OP.person_id and E.start_date >=  OP.observation_period_start_date and E.start_date <= op.observation_period_end_date

@@ -1,4 +1,6 @@
 ﻿phenotypeId,webApiCohortId,atlasId,cohortName,name,logicDescription,cohortId
+0,1352,1352,COPY OF: [RCRI] Surgery-broad,1352,Patients aged >=45 undergoing non-emergent surgery (excluding cardiovascular surgery) as part of an inpatient visit,1352
+0,1353,1353,[RCRI] composite surgery,1353,,1353
 0,1290,1290,[RCRI covariate] periods of elevated creatinine,1290,,1290
 0,1339,1339,"[PCE] outcome Acute myocardial infarction events, defined by condition occurrences of 'myocardial Infarction with complication' conceptset occurring between start and end of inpatient or ER visit",1339,,1339
 0,1344,1344,[RCRI] sub T -  Pneumonectomy ,1344,[RCRI] Pneumonectomy,1344

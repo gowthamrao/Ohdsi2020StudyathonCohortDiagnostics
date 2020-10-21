@@ -5,7 +5,19 @@ CREATE TABLE #Codesets (
 ;
 
 INSERT INTO #Codesets (codeset_id, concept_id)
-SELECT 2 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+SELECT 3 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (9201)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (9201)
+  and c.invalid_reason is null
+
+) I
+) C;
+INSERT INTO #Codesets (codeset_id, concept_id)
+SELECT 4 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
 ( 
   select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (4301351)
 UNION  select c.concept_id
@@ -17,27 +29,15 @@ UNION  select c.concept_id
 ) I
 LEFT JOIN
 (
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2414368,4012185,4250892,4138127,2108140,2108141,4261829)
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (2414368,2108260,4233386,2102901,2102912,4343697,4072033,4012185,4099751,4176647,4100042,4218438,2109916,2108115,4249893,2109196,2106182,2102077,2102593,2102577,2102578,4337261,40491371,44783407,4013566,4144920,4250892,44831978,4138127,40485932,2108140,2108141,2002688,4147588,2006521,2111015,2211799,2313659,4069696,2213572,2101877,4002051,2108054,4261829,4297249,4213041,40490900,4029558,4201612,2313654,2313655,4046550,137820,4053719,2102156,2102140,2102141,4125908,4177088,2110308,4332170,4102442,2002174)
 UNION  select c.concept_id
   from @vocabulary_database_schema.CONCEPT c
   join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
-  and ca.ancestor_concept_id in (2414368,4012185,4250892,4138127,2108140,2108141,4261829)
+  and ca.ancestor_concept_id in (2414368,2108260,4233386,2102901,2102912,4343697,4072033,4012185,4099751,4176647,4100042,4218438,2109916,2108115,4249893,2109196,2106182,2102077,2102593,2102577,2102578,4337261,40491371,44783407,4013566,4144920,4250892,44831978,4138127,40485932,2108140,2108141,2002688,4147588,2006521,2111015,2211799,2313659,4069696,2213572,2101877,4002051,2108054,4261829,4297249,4213041,40490900,4029558,4201612,2313654,2313655,4046550,137820,4053719,2102156,2102140,2102141,4125908,4177088,2110308,4332170,4102442,2002174)
   and c.invalid_reason is null
 
 ) E ON I.concept_id = E.concept_id
 WHERE E.concept_id is null
-) C;
-INSERT INTO #Codesets (codeset_id, concept_id)
-SELECT 3 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
-( 
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (9201)
-UNION  select c.concept_id
-  from @vocabulary_database_schema.CONCEPT c
-  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
-  and ca.ancestor_concept_id in (9201)
-  and c.invalid_reason is null
-
-) I
 ) C;
 
 
@@ -60,7 +60,7 @@ from
 (
   select po.* 
   FROM @cdm_database_schema.PROCEDURE_OCCURRENCE po
-JOIN #Codesets codesets on ((po.procedure_concept_id = codesets.concept_id and codesets.codeset_id = 2))
+JOIN #Codesets codesets on ((po.procedure_concept_id = codesets.concept_id and codesets.codeset_id = 4))
 ) C
 JOIN @cdm_database_schema.PERSON P on C.person_id = P.person_id
 WHERE YEAR(C.procedure_date) - P.year_of_birth >= 45
@@ -109,7 +109,7 @@ JOIN #Codesets codesets on ((vo.visit_concept_id = codesets.concept_id and codes
 
 -- End Visit Occurrence Criteria
 
-) A on A.person_id = P.person_id  AND A.START_DATE >= P.OP_START_DATE AND A.START_DATE <= P.OP_END_DATE AND A.START_DATE >= P.OP_START_DATE AND A.START_DATE <= DATEADD(day,0,P.START_DATE) AND A.visit_occurrence_id = P.visit_occurrence_id
+) A on A.person_id = P.person_id  AND A.START_DATE >= P.OP_START_DATE AND A.START_DATE <= P.OP_END_DATE AND A.START_DATE >= DATEADD(day,-7,P.START_DATE) AND A.START_DATE <= DATEADD(day,0,P.START_DATE)
 GROUP BY p.person_id, p.event_id
 HAVING COUNT(A.TARGET_CONCEPT_ID) >= 1
 -- End Correlated Criteria
